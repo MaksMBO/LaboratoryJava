@@ -1,23 +1,47 @@
 package lab5;
 
+import java.util.Objects;
 import java.util.Scanner;
 
-public class task1 {
-    public static class Hyperbola {
-        float y, x, k;
 
+public class task1 {
+    /**
+     * Class Hyperbola  describing hyperbole
+     * **/
+    public static class Hyperbola implements Options{
+        private float y;
+        private float x;
+        private final float k;
+
+        /**
+         * Constructor with arguments
+         *
+         * @param k   float
+         */
         public Hyperbola(float k) {
             this.k = k;
         }
 
+        /**
+         * Setter of  y
+         * @param y float
+         **/
         public void setY(float y) {
             this.y = y;
         }
 
+        /**
+         * Setter of  x
+         * @param  x float
+         **/
         public void setX(float x) {
             this.x = x;
         }
 
+        /**
+         * Getter x
+         * @return x float
+         **/
         public float getX() {
             try {
                 this.x = this.k / this.y;
@@ -27,6 +51,10 @@ public class task1 {
             return this.x;
         }
 
+        /**
+         * Getter y
+         * @return y float
+         **/
         public float getY() {
             if (this.x == 0) {
                 System.err.println("Invalid value");
@@ -40,34 +68,59 @@ public class task1 {
             return this.y;
         }
 
+        /**
+         * Method that returns a string
+         * **/
         @Override
         public String toString() {
             return "y = " + y +
                     ", x = " + x +
                     ", k = " + k;
         }
+
+        /**
+         * Object Comparing Method
+         * @param o Object
+         * **/
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Hyperbola that = (Hyperbola) o;
+            return Objects.equals(y, that.y) && Objects.equals(x, that.x) &&
+                    Objects.equals(k, that.k);
+        }
+
+        /**
+         * Object Comparing Method
+         * **/
+        @Override
+        public int hashCode() {
+            return Objects.hash(x);
+        }
     }
 
+    /**
+     * Makes communication with user
+     * @param args cli arguments, no one expected
+     */
     public static void main(String[] args) {
         Hyperbola firstHyperbola = new Hyperbola(1f);
-        Hyperbola secondHyperbola = new Hyperbola(-1f);
-        Hyperbola thirdHyperbola = new Hyperbola(3.5f);
-        Hyperbola fourthHyperbola = new Hyperbola(11f);
         Hyperbola fifthHyperbola = new Hyperbola(-2f);
 
         Scanner in = new Scanner(System.in);
         System.out.print("Input a x: ");
         float flX = in.nextFloat();
         fifthHyperbola.setX(flX);
-        System.out.println(fifthHyperbola.getY());
+        System.out.println("y = " + fifthHyperbola.getY());
 
         System.out.print("Input a y: ");
         float flY = in.nextFloat();
         firstHyperbola.setY(flY);
+        System.out.println("x = " + firstHyperbola.getX());
 
-        System.out.println(firstHyperbola.getX());
-        System.out.println(firstHyperbola.toString());
-        System.out.println(fifthHyperbola.toString());
+        System.out.println(firstHyperbola);
+        System.out.println(fifthHyperbola);
     }
 
 }
