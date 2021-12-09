@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
-public class task1Test {
+public class task_1Test {
 
     @Test
     public void main() {
-        task1.Hyperbola firstHyperbola = new task1.Hyperbola(1f);
-        task1.Hyperbola fifthHyperbola = new task1.Hyperbola(-2f);
+        task_1.Hyperbola firstHyperbola = new lab5.task_1.Hyperbola(1f);
+        task_1.Hyperbola fifthHyperbola = new task_1.Hyperbola(-2f);
 
 
         fifthHyperbola.setX(1f);

@@ -4,11 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class task5Test {
+public class task_5Test {
 
     @Test
     public void main() {
-        task5.Message message1 = new task5.Message("Max", "purchase", "text message1", "12-10-00",
+        task_5.Message message1 = new task_5.Message("Max", "purchase", "text message1", "12-10-00",
                 "23-09-2021");
         message1.setAuthor("Max");
         message1.setSubject("purchase");
